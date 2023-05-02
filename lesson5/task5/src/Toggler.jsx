@@ -1,29 +1,37 @@
-﻿import React from "react"
-import "./index.scss"
+import React from "react";
 
-class Toggler extends React.Component {
+export class Toggler extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.text = { text1: "Off" }
+    this.state = {
+      counter: 0,
+      toggler: "Off",
+    };
   }
 
-  changeText = () => {
+  switch = () => {
     this.setState({
-      text1:
-        this.text.text1 === "Off"
-          ? (this.text.text1 = "On")
-          : (this.text.text1 = "Off"),
-    })
-  }
+      counter:
+        this.state.counter === false
+          ? (this.state.counter = true)
+          : (this.state.counter = false),
+    });
+    this.setState({
+      toggler:
+        this.state.counter === false
+          ? (this.state.toggler = "On")
+          : (this.state.toggler = "Off"),
+    });
+  };
 
   render() {
     return (
-      <div class="toggler" onClick={this.changeText}>
-        {this.text.text1}
-      </div>
-    )
+      <button className="toggler" onClick={this.switch}>
+        {this.state.toggler}
+      </button>
+    );
   }
 }
 
-export default Toggler
+export default Toggler;
