@@ -5,13 +5,19 @@ class Toggler extends React.Component {
   constructor(props) {
     super(props)
 
-    this.text = { text1: "Off" }
+    this.text = { number: 0, text1: "Off" }
   }
 
   changeText = () => {
     this.setState({
+      number:
+        this.text.number === false
+          ? (this.text.number = true)
+          : (this.text.number = false),
+    })
+    this.setState({
       text1:
-        this.text.text1 === "Off"
+        this.text.number === false
           ? (this.text.text1 = "On")
           : (this.text.text1 = "Off"),
     })
