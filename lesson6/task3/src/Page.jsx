@@ -1,20 +1,13 @@
 import React from "react";
-import Message from "./Message";
+import Info from "./Info";
 
-const text1 = "Hello, world!";
-const text2 = "Another exciting text.";
+const text1 = "IPhone 13 - Price is 500$. Available in 2 colors";
+const text2 = "Price is 650$. Not available.";
 
 class Page extends React.Component {
   state = {
     text: null,
   };
-
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     text: null,
-  //   };
-  // }
 
   setText = (text) => {
     this.setState({
@@ -25,8 +18,7 @@ class Page extends React.Component {
   render() {
     return (
       <div className="page">
-        <Message text={this.state.text} />
-        {/* <div className="message">Hello, world!</div> */}
+        <Info text={this.state.text} />
         <div className="actions">
           <button className="btn" onClick={() => this.setText(text1)}>
             Text 1
