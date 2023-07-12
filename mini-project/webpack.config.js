@@ -1,7 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const MomentLocalesPlugin = require("moment-locales-webpack-plugin");
 const webpack = require("webpack");
 
 module.exports = (env, argv) => {
@@ -14,8 +13,7 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
-          test: /.(js|jsx?)$/,
-          exclude: /node_modules/,
+          test: /.jsx?$/,
           use: ["babel-loader"],
         },
         {
@@ -28,14 +26,7 @@ module.exports = (env, argv) => {
         },
       ],
     },
-    resolve: {
-      extensions: [".js", ".jsx"],
-    },
     plugins: [
-      new MomentLocalesPlugin(),
-      new MomentLocalesPlugin({
-        localesToKeep: ["es-us", "ru"],
-      }),
       new webpack.ProgressPlugin(),
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
@@ -43,16 +34,10 @@ module.exports = (env, argv) => {
       }),
     ],
     devServer: {
-      historyApiFallback: true,
-      open: true,
       hot: true,
-      port: 8080,
+      open: true,
     },
   };
-
-  if (isProduction) {
-    config.plugins.push(new webpack.HotModuleReplacementPlugin());
-  }
 
   if (isProduction) {
     config.plugins.push(

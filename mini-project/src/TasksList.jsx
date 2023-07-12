@@ -1,6 +1,6 @@
 import React from "react";
-import Task from "./Task";
-import CreateTaskInput from "./CreateTaskInput";
+import Task from "./Task.jsx";
+import CreateTaskInput from "./СreateTaskInput.jsx";
 import {
   createTask,
   fetchTasksList,
