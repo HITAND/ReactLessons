@@ -13,7 +13,7 @@ class CreateTaskInput extends React.PureComponent {
   };
   handleTaskCreate = () => {
     this.props.onCreate(this.state.value);
-    this.setState({value: ""});
+    this.setState({ value: "" });
   };
 
   render() {

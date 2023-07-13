@@ -1,6 +1,6 @@
 import React from "react";
 import Task from "./Task.jsx";
-import CreateTaskInput from "./СreateTaskInput.jsx";
+import CreateTaskInput from "./CreateTaskInput.jsx";
 import {
   createTask,
   fetchTasksList,
@@ -45,31 +45,9 @@ class TasksList extends React.Component {
     updateTask(id, updatedTask).then(() => this.fetchTasks());
   };
 
-  //     return {
-  //       ...task,
-  //       done: !task.done,
-  //     };
-  //   }
-  //   return task;
-  // });
-  // this.setState({
-  //   tasks: updatedTasks,
-  // });
-
-  // 1. find a task in the list
-  // 2. toggle done value
-  // 3. save updated list
-
   handleTaskDelete = (id) => {
     deleteTask(id).then(() => this.fetchTasks());
   };
-
-  //1.filter tasks
-  //2.Update state
-  // const updatedTasks = this.state.tasks
-  //   .slice()
-  //   .filter((task) => task.id !== id);
-  // this.setState({ tasks: updatedTasks });
 
   render() {
     const sortedList = this.state.tasks.slice().sort((a, b) => a.done - b.done);
