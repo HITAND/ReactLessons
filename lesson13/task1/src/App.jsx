@@ -1,7 +1,7 @@
 import React from "react";
-import Home from "./Home";
-import Contacts from "./Contacts";
-import Products from "./Products";
+import Home from "./Home.jsx";
+import Contacts from "./Contacts.jsx";
+import Products from "./Products.jsx";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import PageNotFound from "./PageNotFound";
 
